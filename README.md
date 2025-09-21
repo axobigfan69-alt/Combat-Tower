@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <title>Combat Tower - Official Website</title>
   <style>
-    /* Basic Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Trebuchet MS', sans-serif;
       background: linear-gradient(135deg, #ffcc00, #ff8800);
       color: #fff;
       overflow-x: hidden;
     }
-
-    /* Header */
     header {
       position: relative;
       text-align: center;
@@ -40,107 +36,32 @@
       from { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff8800, 0 0 20px #ffcc00; }
       to { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff8800, 0 0 40px #ffcc00; }
     }
-    #sparkCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
+    #sparkCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
 
-    /* Navigation */
-    nav {
-      display: flex;
-      justify-content: center;
-      background: rgba(0,0,0,0.8);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 25px;
-      display: block;
-      transition: 0.3s;
-      font-weight: bold;
-    }
-    nav a:hover {
-      background: #ffcc00;
-      color: #000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
+    nav { display: flex; justify-content: center; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 10; }
+    nav a { color: #fff; text-decoration: none; padding: 14px 25px; display: block; transition: 0.3s; font-weight: bold; }
+    nav a:hover { background: #ffcc00; color: #000; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
 
-    /* Containers */
-    .container {
-      padding: 60px 20px;
-      text-align: center;
-      animation: fadeInUp 1.5s ease;
-    }
-
-    /* Buttons */
+    .container { padding: 60px 20px; text-align: center; animation: fadeInUp 1.5s ease; }
     .button {
-      background: #ff8800;
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 12px;
-      margin: 10px;
-      display: inline-block;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      background: #ff8800; color: white; padding: 15px 30px; text-decoration: none;
+      border-radius: 12px; margin: 10px; display: inline-block; font-size: 1.1rem;
+      font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
-    .button:hover {
-      background: #ffcc00;
-      color: #000;
-      transform: scale(1.05);
-    }
+    .button:hover { background: #ffcc00; color: #000; transform: scale(1.05); }
 
-    /* Gamepass Grid */
-    .gamepass-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
+    .gamepass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
     .card {
-      background: rgba(0,0,0,0.7);
-      border-radius: 15px;
-      padding: 20px;
-      transition: 0.3s;
+      background: rgba(0,0,0,0.7); border-radius: 15px; padding: 20px; transition: 0.3s;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
-    .card:hover {
-      transform: translateY(-8px);
-      background: rgba(0,0,0,0.9);
-    }
-    .card h3 {
-      margin-bottom: 10px;
-    }
+    .card:hover { transform: translateY(-8px); background: rgba(0,0,0,0.9); }
+    .card h3 { margin-bottom: 10px; }
 
-    /* Footer */
-    footer {
-      background: rgba(0,0,0,0.8);
-      color: #ccc;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      font-size: 0.9rem;
-    }
+    footer { background: rgba(0,0,0,0.8); color: #ccc; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9rem; }
 
-    /* Animations */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
   </style>
 </head>
@@ -211,14 +132,12 @@
   </footer>
 
   <script>
-    // Canvas setup
     const canvas = document.getElementById('sparkCanvas');
     const ctx = canvas.getContext('2d');
     const header = document.querySelector('header');
     canvas.width = window.innerWidth;
     canvas.height = header.offsetHeight;
 
-    // Sparks
     class Spark {
       constructor() { this.reset(); }
       reset() {
@@ -233,7 +152,6 @@
     }
     const sparks = Array.from({length:50},()=>new Spark());
 
-    // Sword Slashes
     class SwordSlash {
       constructor() { this.reset(); }
       reset() {
