@@ -88,7 +88,7 @@
 
   <div id="play" class="container">
     <h2>Play the Game</h2>
-    <a class="button" href="https://www.roblox.com/games/4290666076/Combat-Tower" target="_blank">▶️ Play on Roblox</a>
+    <a class="button" href="https://www.roblox.com/games/12168261951/Combat-Tower" target="_blank">▶️ Play on Roblox</a>
   </div>
 
   <div id="gamepasses" class="container">
